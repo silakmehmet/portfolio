@@ -1,24 +1,35 @@
-import React from "react";
-import { Collapse } from "react-collapse";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+'use client';
+import React, { useState } from 'react';
+import CertificateDetail from './CertificateDetail';
 
-const Certificates = ({ open, toggle, title, description }) => {
+function Certificates({ certificates }) {
+  const [open, setOpen] = useState(false);
+
+  const toggle = (index) => {
+    if (index === open) {
+      return setOpen(null);
+    }
+    setOpen(index);
+  };
+
   return (
-    <div className="pt-3 border-2 border-black rounded-full">
-      <div
-        className="bg-white  py-[25px] px-[50px] flex justify-between items-center cursor-pointer"
-        onClick={toggle}
-      >
-        <p className="text-[22px] font-semibold">{title}</p>
-        <div className="text-[30ox]">
-          {open ? <AiOutlineMinusCircle /> : <AiOutlinePlusCircle />}
-        </div>
+    <div className='flex flex-col justify-center items-center mt-36 md:mt-32 md:mx-25 p-10  h-80 py-64 sm:py-16'>
+      <div className='px-10 max-w-6xl'>
+        {certificates.map((data, index) => {
+          return (
+            <CertificateDetail
+              key={data.id}
+              open={index === open}
+              title={data.title}
+              description={data.description}
+              url={data.url}
+              toggle={() => toggle(index)}
+            />
+          );
+        })}
       </div>
-      <Collapse isOpened={open}>
-        <div className="px-[50px] pb-[20px]">{description}</div>
-      </Collapse>
     </div>
   );
-};
+}
 
 export default Certificates;

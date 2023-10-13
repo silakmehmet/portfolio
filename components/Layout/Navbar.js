@@ -23,7 +23,7 @@ function Navbar() {
     ['Resume', '/resume'],
   ].map(([title, link]) => (
     <Link key={title} href={link}>
-      <li className='ml-10 hover:border-b-2 active:border-b-2  border-cyan-800 text-xl'>
+      <li className='ml-10 hover:border-b-2 border-cyan-800 text-lg font-medium'>
         {title}
       </li>
     </Link>
@@ -37,7 +37,7 @@ function Navbar() {
     <Link key={title} href={link}>
       <li
         onClick={menuHandler}
-        className='py-2 list-none hover:border-b-2 border-cyan-800 items-center justify-center cursor-pointer'
+        className='py-2 list-none items-center justify-center'
       >
         {title}
       </li>
@@ -45,8 +45,8 @@ function Navbar() {
   ));
 
   return (
-    <nav className='fixed  w-full top-0 shadow-xl h-16 z-10 bg-white'>
-      <div className='flex justify-between items-center w-full h-full px-4 2xl:px-16'>
+    <nav className='fixed  w-full top-0 shadow-xl z-10 bg-white'>
+      <div className='flex justify-between items-center w-full h-full px-4 py-2 2xl:px-16'>
         <Link href='/'>
           <span className='font-extrabold text-3xl'>{logo}</span>
         </Link>
@@ -66,7 +66,7 @@ function Navbar() {
       <div
         className={
           menuOpen
-            ? 'fixed right-0 top-16 w-[65%] h-screen sm:hidden bg-slate-300 p-10 ease-in duration-500'
+            ? 'fixed right-0 top-13 w-[65%] h-screen sm:hidden bg-slate-300 p-10 ease-in duration-500'
             : 'fixed left-[100%] top-0 p-10 ease-in duration-500'
         }
       >
