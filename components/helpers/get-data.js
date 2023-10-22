@@ -1,12 +1,12 @@
 export default async function getData(lang, path) {
   const response = await fetch(
-    `https://portfolio-4f414-default-rtdb.firebaseio.com/${lang}/${path}.json`
+    `https://portfolio-4f414-default-rtdb.firebaseio.com/${lang}/${path}.json`,
   );
   if (!response.ok) {
-    throw new Error('Failed to fetch data!');
+    throw new Error("Failed to fetch data!");
   }
   const data = await response.json();
-  if (path === 'certificates') {
+  if (path === "certificates") {
     const certificates = [];
     for (const key in data) {
       certificates.push({
@@ -17,7 +17,7 @@ export default async function getData(lang, path) {
       });
     }
     return certificates;
-  } else if (path === 'projects') {
+  } else if (path === "projects") {
     const projects = [];
     for (const key in data) {
       projects.push({
