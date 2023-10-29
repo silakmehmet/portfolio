@@ -31,7 +31,7 @@ function Resume() {
     changePage(1);
   }
   return (
-    <div className="grid grid-rows-3 gap-2 justify-center text-center mx-auto w-full px-10 mt-10 pt-10">
+    <div className="grid grid-rows-1 justify-center text-center mx-auto w-full px-10 my-10 py-10">
       <div className="shadow-xl">
         <div className="h-10 ">
           <Link
@@ -53,7 +53,7 @@ function Resume() {
         </Document>
       </div>
 
-      <div className="justify-center pt-4">
+      <div className="justify-center py-4">
         <div className="flex justify-around">
           <button
             type="button"
